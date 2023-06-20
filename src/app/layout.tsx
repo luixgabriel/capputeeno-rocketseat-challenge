@@ -1,6 +1,8 @@
+'use client'
 import './globals.css'
 import React from 'react'
 import { Saira } from 'next/font/google'
+import { Header } from './components/header'
 
 const saira = Saira({
   weight: ['300', '400', '500', '600'],
@@ -19,7 +21,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={saira.className}>{children}</body>
+      <body className={saira.className}>
+        <Header />
+        {children}
+      </body>
     </html>
   )
 }
