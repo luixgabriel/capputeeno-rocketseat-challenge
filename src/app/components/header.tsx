@@ -1,6 +1,7 @@
 import { styled } from 'styled-components'
 import { Saira_Stencil_One } from 'next/font/google'
 import { PrimaryInputWSearchIcon } from './primary-input'
+import { CartControl } from './cart-control'
 const sairaStencil = Saira_Stencil_One({
   weight: ['400'],
   subsets: ['latin'],
@@ -25,6 +26,7 @@ export function Header() {
       <Logo className={sairaStencil.className}>Caputeeno</Logo>
       <div>
         <PrimaryInputWSearchIcon placeholder="Procurando por algo específico?" />
+        <CartControl />
       </div>
     </TagHeader>
   )
