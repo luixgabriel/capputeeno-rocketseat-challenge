@@ -1,12 +1,21 @@
 'use client'
 import { useProducts } from '@/hooks/useProducts'
 import { ProductCard } from './product-card'
+import { styled } from 'styled-components'
+
+const ListContainer = styled.div`
+  display: grid;
+  grid-gap: 32px;
+  grid-template-columns: repeat(auto-fill, 256px);
+  max-width: 100%;
+  margin-top: 32px;
+`
 
 export function ProductsList() {
   const { data } = useProducts()
   return (
-    <div>
-      {data.map((product) => (
+    <ListContainer>
+      {data?.map((product) => (
         <ProductCard
           key={product.id}
           title={product.name}
@@ -14,6 +23,6 @@ export function ProductsList() {
           price={product.price_in_cents}
         />
       ))}
-    </div>
+    </ListContainer>
   )
 }

@@ -1,3 +1,4 @@
+import { formatPrice } from '@/utils/format-price'
 import { styled } from 'styled-components'
 
 interface ProductCardProps {
@@ -35,24 +36,33 @@ const Card = styled.div`
     font-weight: 600;
     line-height: 150%;
   }
-  //SELECIONA  APRIMEIRA DIV
-  > div {
-    width: 228px;
-    height: 1px;
-    left: 12px;
-    top: 340px;
-    margin: 8px 0;
-    background: var(--shapes);
+
+  div {
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
+    > div {
+      width: 228px;
+      height: 1px;
+      left: 12px;
+      top: 340px;
+      margin: 8px 0;
+      background: var(--shapes);
+    }
   }
+  //SELECIONA  APRIMEIRA DIV
 `
 
 export function ProductCard({ image, title, price }: ProductCardProps) {
   return (
     <Card>
       <img src={image} alt={title} />
-      <h3>{title}</h3>
-      <div />
-      <p>{price}</p>
+      <div>
+        <h3>{title}</h3>
+        <div />
+        <p>{formatPrice(price)}</p>
+      </div>
     </Card>
   )
 }

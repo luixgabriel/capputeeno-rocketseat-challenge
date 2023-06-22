@@ -29,7 +29,6 @@ const FilterItem = styled.li<FilterItemProps>`
 
 export function FilterByType() {
   const { type, setType } = useFilter()
-
   const handleChangeType = (value: FilterType) => {
     setType(value)
   }
