@@ -2,6 +2,7 @@
 import { styled } from 'styled-components'
 import { FilterBar } from './components/filter-bar'
 import { ProductsList } from './components/products-list'
+import { DefaultPageLayout } from './components/default-page-layout'
 
 const PageWrapper = styled.main`
   display: flex;
@@ -10,17 +11,15 @@ const PageWrapper = styled.main`
   padding: 12px 24px;
   min-height: 100vh;
   background: var(--bg-primary);
-
-  @media (min-width: ${(props) => props.theme.desktopBreakpoint}) {
-    padding: 30px 160px;
-  }
 `
 
 export default function Home() {
   return (
-    <PageWrapper>
-      <FilterBar />
-      <ProductsList></ProductsList>
-    </PageWrapper>
+    <DefaultPageLayout>
+      <PageWrapper>
+        <FilterBar />
+        <ProductsList></ProductsList>
+      </PageWrapper>
+    </DefaultPageLayout>
   )
 }
