@@ -12,7 +12,7 @@ const TagHeader = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 160px;
+  padding: 12px 24px;
 
   > div {
     display: flex;
@@ -20,12 +20,21 @@ const TagHeader = styled.header`
     justify-content: center;
     gap: 24px;
   }
+  //QUANDO ELE CHEGAR E FOR MAIOR QUE 925PX ELE APLICA ESSA REGRA ABAIXO
+  @media (min-width: 925px) {
+    padding: 20px 160px;
+  }
 `
 const Logo = styled.a`
   color: var(--logo-color);
   font-weight: 400;
-  font-size: 40px;
+  font-size: 30px;
   line-height: 150%;
+
+  //QUANDO ELE CHEGAR E FOR MAIOR QUE 768PX ELE APLICA ESSA REGRA ABAIXO
+  @media (min-width: ${(props) => props.theme.tableBreakpoint}) {
+    font-size: 40px;
+  }
 `
 
 export function Header() {
