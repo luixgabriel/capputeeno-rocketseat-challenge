@@ -14,8 +14,8 @@ export const PrimaryInput = styled.input`
   line-height: 20px;
   font-family: inherit;
   color: var(--text-dark);
-  //QUANDO ELE CHEGAR E FOR MAIOR QUE 768PX ELE APLICA ESSA REGRA ABAIXO
-  @media (min-width: ${(props) => props.theme.tableBreakpoint}) {
+  //QUANDO ELE CHEGAR E FOR MAIOR QUE 968PX ELE APLICA ESSA REGRA ABAIXO
+  @media (min-width: ${(props) => props.theme.desktopBreakpoint}) {
     font-size: 14px;
     line-height: 22px;
   }
@@ -31,8 +31,8 @@ const InputContainer = styled.div`
     transform: translateY(-50%);
   }
 
-  //QUANDO ELE CHEGAR E FOR MAIOR QUE 768PX ELE APLICA ESSA REGRA ABAIXO
-  @media (min-width: ${(props) => props.theme.tableBreakpoint}) {
+  //QUANDO ELE CHEGAR E FOR MAIOR QUE 968PX ELE APLICA ESSA REGRA ABAIXO
+  @media (min-width: ${(props) => props.theme.desktopBreakpoint}) {
     width: 352px;
   }
 `

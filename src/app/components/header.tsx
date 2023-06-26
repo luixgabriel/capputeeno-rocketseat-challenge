@@ -20,19 +20,24 @@ const TagHeader = styled.header`
     justify-content: center;
     gap: 24px;
   }
-  //QUANDO ELE CHEGAR E FOR MAIOR QUE 925PX ELE APLICA ESSA REGRA ABAIXO
-  @media (min-width: 925px) {
+  //QUANDO ELE CHEGAR E FOR MAIOR QUE 968PX ELE APLICA ESSA REGRA ABAIXO
+  @media (min-width: ${(props) => props.theme.desktopBreakpoint}) {
     padding: 20px 160px;
   }
 `
 const Logo = styled.a`
   color: var(--logo-color);
   font-weight: 400;
-  font-size: 30px;
+  font-size: 20px;
   line-height: 150%;
 
   //QUANDO ELE CHEGAR E FOR MAIOR QUE 768PX ELE APLICA ESSA REGRA ABAIXO
   @media (min-width: ${(props) => props.theme.tableBreakpoint}) {
+    font-size: 24px;
+  }
+
+  //QUANDO ELE CHEGAR E FOR MAIOR QUE 968PX ELE APLICA ESSA REGRA ABAIXO
+  @media (min-width: ${(props) => props.theme.desktopBreakpoint}) {
     font-size: 40px;
   }
 `
