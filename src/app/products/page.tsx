@@ -12,7 +12,50 @@ export default function Products({
   searchParams: { id: string }
 }) {
   const { data } = useProductsById(searchParams.id)
-  console.log(data)
+
+  // const handleAddTocart = () => {
+  //   const cartItems = localStorage.getItem('cart-items')
+  //   if (cartItems) {
+  //     const cartItemsArray = JSON.parse(cartItems)
+
+  //     const existingProductIndex = cartItemsArray.findIndex(
+  //       (item: { id: string }) => item.id === searchParams.id,
+  //     )
+
+  //     if (existingProductIndex) {
+  //       cartItemsArray[existingProductIndex].quantity += 1
+  //     } else {
+  //       cartItemsArray.push({ ...data, quantity: 1, id: searchParams.id })
+  //     }
+
+  //     localStorage.setItem('cart-items', JSON.stringify(cartItemsArray))
+  //   } else {
+  //     const newCartItem = [{ ...data, quantity: 1, id: searchParams.id }]
+  //     localStorage.setItem('cart-items', JSON.stringify(newCartItem))
+  //   }
+  // }
+
+  const handleAddToCart = () => {
+    const cartItems = localStorage.getItem('cart-items')
+    if (cartItems) {
+      const cartItemsArray = JSON.parse(cartItems)
+
+      const existingProductIndex = cartItemsArray.findIndex(
+        (item: { id: string }) => item.id === searchParams.id,
+      )
+
+      if (existingProductIndex !== -1) {
+        cartItemsArray[existingProductIndex].quantity += 1
+      } else {
+        cartItemsArray.push({ ...data, quantity: 1, id: searchParams.id })
+      }
+
+      localStorage.setItem('cart-items', JSON.stringify(cartItemsArray))
+    } else {
+      const newCart = [{ ...data, quantity: 1, id: searchParams.id }]
+      localStorage.setItem('cart-items', JSON.stringify(newCart))
+    }
+  }
 
   const Container = styled.div`
     display: flex;
@@ -126,7 +169,7 @@ export default function Products({
                 <p>{data?.description}</p>
               </div>
             </ProductInfo>
-            <button>
+            <button onClick={handleAddToCart}>
               <ShopBagIcon /> Adicionar ao carrinho
             </button>
           </div>
