@@ -13,28 +13,6 @@ export default function Products({
 }) {
   const { data } = useProductsById(searchParams.id)
 
-  // const handleAddTocart = () => {
-  //   const cartItems = localStorage.getItem('cart-items')
-  //   if (cartItems) {
-  //     const cartItemsArray = JSON.parse(cartItems)
-
-  //     const existingProductIndex = cartItemsArray.findIndex(
-  //       (item: { id: string }) => item.id === searchParams.id,
-  //     )
-
-  //     if (existingProductIndex) {
-  //       cartItemsArray[existingProductIndex].quantity += 1
-  //     } else {
-  //       cartItemsArray.push({ ...data, quantity: 1, id: searchParams.id })
-  //     }
-
-  //     localStorage.setItem('cart-items', JSON.stringify(cartItemsArray))
-  //   } else {
-  //     const newCartItem = [{ ...data, quantity: 1, id: searchParams.id }]
-  //     localStorage.setItem('cart-items', JSON.stringify(newCartItem))
-  //   }
-  // }
-
   const handleAddToCart = () => {
     const cartItems = localStorage.getItem('cart-items')
     if (cartItems) {

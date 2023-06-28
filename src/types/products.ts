@@ -6,6 +6,11 @@ export interface Products {
   description?: string
   category?: string
 }
+
+export interface ProductsInCart extends Products {
+  quantity: number
+}
+
 export interface ProductFetchResponse {
   data: {
     Product: Products

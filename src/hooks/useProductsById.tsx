@@ -27,6 +27,7 @@ export function useProductsById(id: string) {
     queryKey: ['product', id],
     // Com a opção enabled a minha requisição só diaspara qunado ela for true
     enabled: !!id,
+    // Com a opção staleTime salvo minhas informações em um cache para que não seja necessário faze a request novamente
     staleTime: 1000 * 60 * 5,
   })
 
